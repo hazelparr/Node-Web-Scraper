@@ -25,7 +25,8 @@ try {
 request( rootURL, function (error, response, body) {
   if (error || response.statusCode != 200) {
     //console.log(error.message);
-    console.log("Sorry there was an error");
+    
+
     errorLog(error);
   } else {
     readFrontPage(body);  
@@ -76,8 +77,10 @@ function readProductPage(html, url) {
 }
 
 // creation of a log file for the errors
-function errorLog(error) {
+function errorLog(error, response) {
+    console.log("Sorry, can't connect to site.");
     console.log(error.message);
+
     var errorTime = moment().format("MMM-DD-YYYY HH:mm:ss");
     var errorMessage = error.message + " " + errorTime + "\n";
 
