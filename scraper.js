@@ -15,9 +15,9 @@ var errorURL = "shirts4mike.com/shirts.php"; //used to test the error log
 //checking if date folder exists, and make one if it doesn't
 try {
     fs.accessSync("./data");
-    console.log("data exists");
+    console.log("data folder exists");
 } catch (e) {
-    console.log("data doesn't exists");
+    console.log("Data folder doesn't exists");
     fs.mkdirSync("./data");
 }
 
@@ -78,7 +78,7 @@ function readProductPage(html, url) {
 
 // creation of a log file for the errors
 function errorLog(error, response) {
-    console.log("Sorry, can't connect to site.");
+    console.log("There was an error accessing the website.\nSee error log for more details.");
     console.log(error.message);
 
     var errorTime = moment().format("MMM-DD-YYYY HH:mm:ss");
